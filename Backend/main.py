@@ -1,4 +1,5 @@
-import api
+import Backend.mysqlApi as mysqlApi
+import Backend.mongoDBapi as mongoDBapi
 
 def main():
     while True:
@@ -8,10 +9,10 @@ def main():
         choice = input("Enter your choice: ")
         if choice == '1':
             name = input("Enter worker's name: ")
-            api.add_worker(name)
+            mysqlApi.add_worker(name)
         elif choice == '2':
             worker_id = input("Enter worker's ID: ")
-            worker = api.get_worker(worker_id)
+            worker = mysqlApi.get_worker(worker_id)
             if not worker:
                 print("Worker not found")
             print(worker)
